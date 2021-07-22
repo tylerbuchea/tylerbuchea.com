@@ -32,6 +32,8 @@ elif [ $script == "build" ] ; then
 elif [ $script == "prep" ] ; then
   yarn build
   yarn export
+  git add .
+  git commit -m "New build"
 
 elif [ $script == "ship" ] ; then
   npm run release:patch
