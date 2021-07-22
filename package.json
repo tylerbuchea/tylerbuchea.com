@@ -6,9 +6,9 @@
     "build": "next build",
     "start": "next start",
     "export": "next export -o docs",
-    "release:patch": "git fetch && git rebase origin/master && npm version patch -m \"$npm_config_message\" && git push origin master --follow-tags",
-    "release:minor": "git fetch && git rebase origin/master && npm version minor -m \"$npm_config_message\" && git push origin master --follow-tags",
-    "release:major": "git fetch && git rebase origin/master && npm version major -m \"$npm_config_message\" && git push origin master --follow-tags"
+    "release:patch": "./ops prep && git fetch && git rebase origin/master && npm version patch -m \"$npm_config_message\" && git push origin master --follow-tags",
+    "release:minor": "./ops prep && git fetch && git rebase origin/master && npm version minor -m \"$npm_config_message\" && git push origin master --follow-tags",
+    "release:major": "./ops prep && git fetch && git rebase origin/master && npm version major -m \"$npm_config_message\" && git push origin master --follow-tags"
   },
   "dependencies": {
     "await-to-js": "^3.0.0",

@@ -29,10 +29,12 @@ elif [ $script == "test" ] ; then
 elif [ $script == "build" ] ; then
   yarn build
 
-elif [ $script == "ship" ] ; then
+elif [ $script == "prep" ] ; then
   yarn build
   yarn export
-  git push origin master
+
+elif [ $script == "ship" ] ; then
+  npm run release:patch
 
 fi
 
