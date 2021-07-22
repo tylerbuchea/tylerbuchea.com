@@ -9,14 +9,14 @@ const nomics = new Nomics({ apiKey });
 const SORT_BY = ["portfolioValue"];
 const SORT_ORDER = ["desc"];
 const PORTFOLIO = {
-  // BTC: { quantity: 2.272, usdInvested: 18435.34 },
-  ETH: { quantity: 3.717, usdInvested: 2779.06 },
-  MM4: { quantity: 50, usdInvested: 50 },
-  DOGE: { quantity: 23413.5, usdInvested: 5000 },
-  SOL: { quantity: 89.926, usdInvested: 3273.39166 },
-  SFAX: { quantity: 93919678.97787109, usdInvested: 676.713 },
-  BABYDOGE2: { quantity: 47715996546.546961, usdInvested: 276 },
-  RUNE: { quantity: 50, usdInvested: 337.62 },
+  // BTC: { quantity: 1.272, usdInvested: 18435.34 },
+  // ETH: { quantity: 3.717, usdInvested: 2779.06 },
+  MM4: { quantity: 235, usdInvested: 32000 },
+  // DOGE: { quantity: 23413.5, usdInvested: 5000 },
+  // SOL: { quantity: 89.926, usdInvested: 3273.39166 },
+  // SFAX: { quantity: 93919678.97787109, usdInvested: 676.713 },
+  // BABYDOGE2: { quantity: 47715996546.546961, usdInvested: 276 },
+  // RUNE: { quantity: 50, usdInvested: 337.62 },
   // AXS2: 0,
 };
 
@@ -69,13 +69,20 @@ export function formatPrice(price) {
   return prefix + formatNumber(Math.abs(price));
 }
 
-export default function IndexPage() {
+export default function Crypto() {
+  const intervalRef = React.useRef();
+  const [currentTime, setCurrentTime] = React.useState(new Date());
+  const [lastUpdate, setLastUpdate] = React.useState(new Date());
   const [currencies, setCurrencies] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(true);
+  const [error, setError] = React.useState(null);
   const portfolioTotal = React.useMemo(
     () => (currencies || []).reduce((total, c) => c.portfolioValue + total, 0),
     [currencies]
+  );
+  const secondsAgo = React.useMemo(
+    () => Math.floor((currentTime.getTime() - lastUpdate.getTime()) / 1000),
+    [currentTime, lastUpdate]
   );
 
   const refetchCurrencies = React.useCallback(() => {
@@ -87,25 +94,57 @@ export default function IndexPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  React.useEffect(refetchCurrencies, []);
+  React.useEffect(() => {
+    refetchCurrencies();
+    intervalRef.current = setInterval(() => {
+      setLastUpdate(new Date());
+      refetchCurrencies();
+    }, 5000);
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const currentTimeIntervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => {
+      clearInterval(currentTimeIntervalId);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    if (error) {
+      clearInterval(intervalRef.current);
+    }
+  }, [error]);
 
   return (
     <div className="root">
       <header>
         <h1>Crypto Dash</h1>
-        <button onClick={refetchCurrencies}>
-          {" "}
-          {loading ? "Loading" : "Refetch"}
-        </button>
-        {error && (
-          <>
-            <br />
-            <small>{error}</small>
-          </>
-        )}
         <h2>
-          Total
+          <small>Last Update:</small>
+          <span
+            style={{
+              color:
+                secondsAgo > 6
+                  ? "var(--color-error)"
+                  : "var(--color-foreground)",
+            }}
+          >
+            {secondsAgo} Seconds Ago
+          </span>
           <br />
+          <button onClick={refetchCurrencies}>
+            {loading ? "Loading" : "Refetch"}
+          </button>
+          {error && <h2 className="error">{error}</h2>}
+        </h2>
+
+        <h2>
+          <small>Portfolio Total:</small>
           {formatPrice(portfolioTotal)}
         </h2>
       </header>
@@ -123,25 +162,30 @@ export default function IndexPage() {
               profitDiff,
             }) => (
               <li key={id}>
-                <h3>
-                  {name}
-                  <br />
-                  <small>({id})</small>
-                </h3>
                 <h2>
-                  {formatPrice(portfolioValue)}
-                  <br />
-                  <small
-                    style={{
-                      color: profitable ? "var(--success)" : "var(--error)",
-                    }}
-                  >
-                    {formatPrice(Math.floor(profitDiff))}
-                  </small>
+                  {name}
+                  <small>({id})</small>
                 </h2>
-                <small>{formatNumber(portfolioAmount)} total</small>
-                <br />
-                <small>{formatPrice(price)} per token</small>
+                <h2>
+                  <small>Price:</small>
+                  {formatPrice(price)}
+                </h2>
+                <h2>
+                  <small>Quantity:</small>
+                  {formatNumber(portfolioAmount)}
+                </h2>
+                <h2>
+                  <small>Total Value:</small>
+                  {formatPrice(portfolioValue)}
+                </h2>
+                <h2
+                  style={{
+                    color: profitable ? "var(--success)" : "var(--error)",
+                  }}
+                >
+                  <small>{profitable ? "Gain" : "Loss"}</small>
+                  {formatPrice(Math.floor(profitDiff))}
+                </h2>
               </li>
             )
           )}
@@ -176,16 +220,24 @@ export default function IndexPage() {
 
         header h2 {
           text-align: center;
+          margin: 0px;
+          padding: 0px;
+          padding-top: 20px;
         }
-        header small {
+        header h2 small {
+          font-size: 14px;
+          display: block;
+        }
+        .error {
           color: var(--error);
         }
         ul {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           flex-wrap: wrap;
           grid-gap: 10px;
           list-style-type: none;
+          justify-content: center;
           padding: 0px;
         }
         li {
@@ -193,18 +245,16 @@ export default function IndexPage() {
           padding: 5px 10px 20px 10px;
           border-radius: 5px;
           text-align: center;
+          white-space: nowrap;
         }
         li h2 {
-          color: var(--foreground);
+          margin: 0px;
+          padding: 0px;
+          padding-top: 20px;
         }
         li h2 small {
-          font-size: 16px;
-        }
-        li h2 small {
-          color: var(--foreground);
-        }
-        li h3 {
-          margin-top: 20px;
+          font-size: 14px;
+          display: block;
         }
         footer {
           margin-top: 100px;
