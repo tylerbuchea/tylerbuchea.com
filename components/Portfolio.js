@@ -4,31 +4,31 @@ import Card from "./Card";
 export default function Portfolio() {
   return (
     <>
-      <h4>Portfolio</h4>
+      <h4>Companies</h4>
       <Slider>
         <Card
-          key="Rhombus Systems"
-          title="Rhombus Systems"
-          sub="Modern video security and IoT sensor platform for enhanced operations."
-          img="rhombus.png"
-          color="linear-gradient(90deg,#3c87ec,#46cce1)"
-          href="https://rhombussystems.com"
+          key="Chicken Tribe"
+          title="Chicken Tribe"
+          sub="Building no-code launchpad services for holders. Engaging the community through comic page-style bits of lore."
+          img="chickentribe.svg"
+          color="linear-gradient(162deg, #b000ff 19%, #0368ff 97%)"
+          href="https://twitter.com/ChickenTribe"
         />
         <Card
-          key="WProducts"
-          title="WooProducts"
-          sub="The only app that lets you add products with product images to your WooCommerce store!"
-          img="wproducts2.png"
-          color="#2f1b4c"
-          href="https://wproducts.co"
+          key="Solana Sanctuary"
+          title="Solana Sanctuary"
+          sub="The Sanctuary is a DAO dedicated to providing resources to Solana NFT communities that have been rugged."
+          img="sanctuary.png"
+          color="linear-gradient(162deg, #61f9c7 19%, #7499ff 97%)"
+          href="https://twitter.com/SolanaSanctuary"
         />
         <Card
-          key="Carbon Native"
-          title="Carbon Native"
-          sub="A set of UI components for building React Native apps."
-          img="carbon-native-2.png"
-          color="#ff704c"
-          href="https://getcarbonnative.com"
+          key="Exiled Apes"
+          title="Exiled Apes"
+          sub="A historic collection of only 518 NFTs. First mint of the Degen Ape Academy. Solana's only misprint NFT."
+          img="exiled-logo.png"
+          color="linear-gradient(162deg, rgb(51, 51, 51) 19%, rgb(40, 40, 40) 97%)"
+          href="https://twitter.com/ExiledApes"
         />
       </Slider>
       <style jsx>{`

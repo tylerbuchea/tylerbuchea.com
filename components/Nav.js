@@ -1,28 +1,27 @@
 const items = [
-  { name: "blog", icon: "fa fa-pencil", href: "http://blog.tylerbuchea.com" },
+  // { name: "blog", icon: "fa fa-pencil", href: "http://blog.tylerbuchea.com" },
+  {
+    name: "Twitter",
+    href: "https://twitter.com/tylerbuchea",
+    icon: "fa fa-twitter",
+  },
   {
     name: "Github",
     href: "https://github.com/tylerbuchea",
     icon: "fa fa-github",
   },
 
-  {
-    name: "YouTube",
-    href: "https://www.youtube.com/channel/UCjGfHpKjVrp7MZ45hiwgD_A",
-    icon: "fa fa-youtube",
-  },
+  // {
+  //   name: "YouTube",
+  //   href: "https://www.youtube.com/channel/UCjGfHpKjVrp7MZ45hiwgD_A",
+  //   icon: "fa fa-youtube",
+  // },
 
-  {
-    name: "Twitter",
-    href: "https://twitter.com/tylerbuchea",
-    icon: "fa fa-twitter",
-  },
-
-  {
-    name: "Angel List",
-    href: "https://angel.co/tyler-buchea",
-    icon: "fa fa-angellist",
-  },
+  // {
+  //   name: "Angel List",
+  //   href: "https://angel.co/tyler-buchea",
+  //   icon: "fa fa-angellist",
+  // },
 
   {
     name: "Linked In",
@@ -61,7 +60,7 @@ export default function Nav() {
             list-style: none;
             margin: 0px;
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             padding: 10px 0px;
             grid-gap: 20px 10px;
           }

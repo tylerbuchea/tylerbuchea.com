@@ -11,7 +11,7 @@
 ## Develop
 
 ```bash
-./ops start
+./ops dev
 ```
 
 ## Test

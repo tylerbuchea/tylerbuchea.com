@@ -79,7 +79,7 @@ export default function Card({ title, sub, img, color, href }) {
 
           p {
             margin: 0;
-            padding-top: 2.5vh;
+            padding-top: 2vh;
             padding-bottom: 3vh;
             color: #fff;
             z-index: 1;

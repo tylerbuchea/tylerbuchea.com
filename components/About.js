@@ -8,11 +8,11 @@ export default function About() {
           width="300"
           height="300"
           layout="fixed"
-          src="selfie.jpg"
+          src="moon.png"
           className="selfie"
         ></amp-img>
       </div>
-      <h3>Howdy,</h3>
+      <h3>gm,</h3>
       <p>
         It's a pleasure to meet you, my name is Tyler.{" "}
         <span role="img" aria-label="smiley">
@@ -20,16 +20,42 @@ export default function About() {
         </span>
       </p>
       <p>
-        I'm a software engineer living in Portland, Oregon and working remotely.
-        I like React, React Native, GraphQL, and TypeScript. Add me on Instagram{" "}
+        I like coding for Web3: Solana, Rust, Anchor, Typescript, React,
+        Ethereum, Solidity. Founder{" "}
         <a
-          href="https://instagram.com/tylerbuchea"
+          href="https://twitter.com/tylerbuchea"
+          target="_blank"
+          rel="noreferrer"
+        >
+          @ChickenTribe
+        </a>
+        ,{" "}
+        <a
+          href="https://twitter.com/tylerbuchea"
+          target="_blank"
+          rel="noreferrer"
+        >
+          @SolanaSanctuary
+        </a>
+        , and{" "}
+        <a
+          href="https://twitter.com/tylerbuchea"
+          target="_blank"
+          rel="noreferrer"
+        >
+          @ExiledApes
+        </a>
+        .
+      </p>
+      <p>
+        Add me on Twitter:{" "}
+        <a
+          href="https://twitter.com/tylerbuchea"
           target="_blank"
           rel="noreferrer"
         >
           @tylerbuchea
         </a>
-        .
       </p>
 
       <style jsx>{`
@@ -72,6 +98,7 @@ export default function About() {
 
         p {
           font-size: 1.2rem;
+          line-height: 2rem;
         }
       `}</style>
     </>
