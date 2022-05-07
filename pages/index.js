@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Tyler Buchea | Founder & Engineer</title>
+        <title>Tyler Buchea | Dev + Founder</title>
       </Head>
 
       <div className="container">

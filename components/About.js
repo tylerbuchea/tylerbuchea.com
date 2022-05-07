@@ -19,34 +19,7 @@ export default function About() {
           🙂
         </span>
       </p>
-      <p>
-        I like coding for Web3: Solana, Rust, Anchor, Typescript, React,
-        Ethereum, Solidity. Founder{" "}
-        <a
-          href="https://twitter.com/tylerbuchea"
-          target="_blank"
-          rel="noreferrer"
-        >
-          @ChickenTribe
-        </a>
-        ,{" "}
-        <a
-          href="https://twitter.com/tylerbuchea"
-          target="_blank"
-          rel="noreferrer"
-        >
-          @SolanaSanctuary
-        </a>
-        , and{" "}
-        <a
-          href="https://twitter.com/tylerbuchea"
-          target="_blank"
-          rel="noreferrer"
-        >
-          @ExiledApes
-        </a>
-        .
-      </p>
+      <p>I'm a Web3 Dev + Founder 4 Solana & Ethereum.</p>
       <p>
         Add me on Twitter:{" "}
         <a
