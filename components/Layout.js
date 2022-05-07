@@ -4,13 +4,13 @@ export default function Layout({ children }) {
   return (
     <>
       <Head htmlAttributes={{ lang: "en" }}>
-        <title>Tyler Buchea | Founder & Engineer</title>
+        <title>Tyler Buchea | Dev + Founder</title>
         <meta charSet="utf-8" />
         {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
-        <meta name="description" content="Founder & Engineer" />
+        <meta name="description" content="Dev + Founder" />
         <meta property="og:site_name" content="Tyler Buchea" />
         <meta property="og:title" content="Tyler Buchea" />
-        <meta property="og:description" content="Founder & Engineer" />
+        <meta property="og:description" content="Dev + Founder" />
         <meta property="og:url" content="https://tylerbuchea.com/" />
         <meta property="og:image" content="https://tylerbuchea.com/monke.png" />
         <meta name="twitter:image:alt" content="Tyler Buchea" />
