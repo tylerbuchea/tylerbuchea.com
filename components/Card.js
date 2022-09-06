@@ -35,7 +35,7 @@ export default function Card({ title, sub, img, color, href }) {
           flex-direction: column;
           display: flex;
           border-radius: 50px;
-          padding: 20px;
+          padding: 20px 20px 40px 20px;
           border: 2px solid black;
         }
 
@@ -73,7 +73,7 @@ export default function Card({ title, sub, img, color, href }) {
 
         p {
           margin: 0;
-          padding: 20px 0px 80px 0px;
+          padding: 20px 0px 0px 0px;
           /* background: rgba(255, 0, 0, 0.5); */
           color: #fff;
           z-index: 1;

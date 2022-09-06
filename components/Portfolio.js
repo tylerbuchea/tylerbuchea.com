@@ -9,7 +9,7 @@ export default function Portfolio() {
         <Card
           key="Dexloan"
           title="Dexloan"
-          sub="Unlock the value of your NFTs with escrowless borrowing & lending."
+          sub="Dexloan is the only platform that lets you compose multiple investment services on the same&nbsp;NFT."
           img="dexloan3.png"
           color="linear-gradient(162deg, #2f855a 19%, #2d3748 97%)"
           href="https://twitter.com/dexloanio"
@@ -17,7 +17,7 @@ export default function Portfolio() {
         <Card
           key="Chicken Tribe"
           title="Chicken Tribe"
-          sub="Building no-code launchpad services for holders. Engaging the community through comic page-style bits of lore."
+          sub="We're a storyline-driven brand, pairing art with digital+physical: games, products, and&nbsp;experiences."
           img="chickentribe.svg"
           color="linear-gradient(162deg, #b000ff 19%, #0368ff 97%)"
           href="https://twitter.com/ChickenTribe"
@@ -25,7 +25,7 @@ export default function Portfolio() {
         <Card
           key="Exiled Apes"
           title="Exiled Apes"
-          sub="A historic collection of only 518 NFTs. First mint of the Degen Ape Academy. Solana's only misprint NFT."
+          sub="The first mint of the Degen Ape Academy, a historic collection of only 518&nbsp;NFTs."
           img="exiled-logo.png"
           color="linear-gradient(162deg, #4e4e50 19%, #1c1c1c 97%)"
           href="https://twitter.com/ExiledApes"
@@ -33,7 +33,7 @@ export default function Portfolio() {
         <Card
           key="Solana Sanctuary"
           title="Solana Sanctuary"
-          sub="The Sanctuary is a DAO dedicated to providing resources to Solana NFT communities that have been rugged."
+          sub="The Sanctuary is a DAO dedicated to providing resources to Solana NFT communities that have been&nbsp;rugged."
           img="sanctuary.png"
           color="linear-gradient(162deg, #61f9c7 19%, #7499ff 97%)"
           href="https://twitter.com/SolanaSanctuary"
