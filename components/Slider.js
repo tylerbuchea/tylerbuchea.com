@@ -6,10 +6,10 @@ export default function Slider({ children }) {
       <amp-base-carousel
         snap="true"
         loop="true"
-        height="450"
+        height="380"
         layout="fixed-height"
-        visible-count="(min-width: 1150px) 3, (min-width: 800px) 2, 1"
-        advance-count="(min-width: 1150px) 3, (min-width: 800px) 2, 1"
+        visible-count="(min-width: 1150px) 4, (min-width: 800px) 3, (min-width: 600px) 2, 1"
+        advance-count="(min-width: 1150px) 4, (min-width: 800px) 3, (min-width: 600px) 2, 1"
       >
         {children}
         <button slot="next-arrow" className="carousel-next" aria-label="Next">

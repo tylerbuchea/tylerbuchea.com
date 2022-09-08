@@ -37,7 +37,7 @@ export default function Home() {
         }
         .bleed {
           margin: 0 auto;
-          max-width: 1000px;
+          max-width: 1200px;
           display: block;
         }
       `}</style>

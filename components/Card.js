@@ -8,7 +8,7 @@ export default function Card({ title, sub, img, color, href }) {
   return (
     <div className="card" style={{ background: color }}>
       <div className="image">
-        <amp-img alt="story" layout="fill" src={img}></amp-img>
+        <amp-img alt="story" src={img} width="150" height="150"></amp-img>
       </div>
       <a href={hrefAmp} target="_blank" rel="noreferrer">
         <h5>
@@ -35,7 +35,7 @@ export default function Card({ title, sub, img, color, href }) {
           flex-direction: column;
           display: flex;
           border-radius: 50px;
-          padding: 20px 20px 40px 20px;
+          padding: 20px 20px 50px 20px;
           border: 2px solid black;
         }
 
@@ -46,9 +46,10 @@ export default function Card({ title, sub, img, color, href }) {
           text-align: center;
           flex: 1 1 auto;
           width: 100%;
-          height: 200px;
+          height: 50px;
           display: flex;
           justify-content: center;
+          align-items: center;
         }
 
         h5 {
