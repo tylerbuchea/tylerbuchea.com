@@ -13,10 +13,10 @@
   "dependencies": {
     "await-to-js": "^3.0.0",
     "lodash": "^4.17.21",
-    "next": "latest",
+    "next": "12",
     "nomics": "^0.5.7",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "license": "MIT"
 }

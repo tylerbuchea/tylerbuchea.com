@@ -5,24 +5,11 @@
 ## Setup
 
 ```bash
-./ops setup
+yarn install
 ```
 
 ## Develop
 
 ```bash
-./ops dev
-```
-
-## Test
-
-```bash
-# no tests yet
-./ops test
-```
-
-## Deploy
-
-```bash
-./ops ship
+yarn dev
 ```

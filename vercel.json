@@ -4,7 +4,13 @@
       "src": "/blog",
       "dest": "https://tyler.ghost.io/blog/"
     },
-
+    {
+      "source": "/blog/:path*",
+      "headers": [
+        { "key": "X-Forwarded-Proto", "value": "https" },
+        { "key": "X-Forwarded-Host", "value": "tylerbuchea.com" }
+      ]
+    },
     {
       "src": "/blog/(.*?)([.]\\w{2,5})(\\?[^/]+)?",
       "dest": "https://tyler.ghost.io/blog/$1$2$3"
