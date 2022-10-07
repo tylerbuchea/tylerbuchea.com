@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "src": "/blog",
+      "dest": "https://YOURGHOST.ghost.io/blog/"
+    },
+
+    {
+      "src": "/blog/(.*?)([.]\\w{2,5})(\\?[^/]+)?",
+      "dest": "https://YOURGHOST.ghost.io/blog/$1$2$3"
+    },
+
+    {
+      "src": "/blog/([\\S\\s]+)",
+      "dest": "https://YOURGHOST.ghost.io/blog/$1/"
+    }
+  ]
+}
