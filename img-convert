@@ -1,0 +1,10 @@
+#!/bin/bash
+
+filename=${1}
+
+convert $filename.png \
+-resize 500 \
+-gravity center \
+-background "#eee" \
+-extent 600x330+0+0  \
+$filename.jpg
