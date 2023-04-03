@@ -14,12 +14,12 @@ export default function About() {
       </div>
       <h3>gm,</h3>
       <p>
-        It's a pleasure to meet you, my name is Tyler.{" "}
+        It&apos;s a pleasure to meet you, my name is Tyler.{" "}
         <span role="img" aria-label="smiley">
           🙂
         </span>
       </p>
-      <p>I'm a Web3 Dev + Founder 4 Solana & Ethereum.</p>
+      <p>I&apos;m a Web3 Dev + Founder 4 Solana & Ethereum.</p>
       <p>
         Read my{" "}
         <a href="https://blog.tylerbuchea.com" target="_blank" rel="noreferrer">
