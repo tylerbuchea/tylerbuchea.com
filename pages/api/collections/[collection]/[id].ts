@@ -47,7 +47,7 @@ export default async function handler(
         const jsonString = JSON.stringify({
           name: `gm #${num}`,
           image: `https://tylerbuchea.com/api/collections/gm/${num}.svg`,
-          attribute: Object.entries(blobCharacter.attributes).map(
+          attributes: Object.entries(blobCharacter.attributes).map(
             ([key, value]) => ({
               trait_type: key,
               value,
