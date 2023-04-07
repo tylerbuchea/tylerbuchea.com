@@ -17,19 +17,40 @@ export default async function handler(
 ) {
   try {
     await cors(req, res);
-
     const { collection, id } = req.query;
-    const seed = Number(id);
+    if (!collection || !id || Array.isArray(id)) {
+      throw Error("Missing collection or id");
+    }
+    const [num, type] = id.split(".");
 
-    const blobCharacter = new BlobCharacter(200, 200, seed);
-    const svgString = blobCharacter.draw();
+    if (collection === "gm") {
+      if (type === "svg") {
+        const seed = Number(num);
+        const blobCharacter = new BlobCharacter(200, 200, seed);
+        const svgString = blobCharacter.draw();
 
-    res.writeHead(200, {
-      "Content-Type": "image/svg+xml",
-      "Content-Length": svgString.length,
-    });
+        res.writeHead(200, {
+          "Content-Type": "image/svg+xml",
+          "Content-Length": svgString.length,
+        });
+        res.end(svgString);
+      }
 
-    res.end(svgString);
+      if (type === "json") {
+        const jsonString = JSON.stringify({
+          name: `gm #${num}`,
+          image: `https://tylerbuchea.com/api/collections/gm/${num}.svg`,
+        });
+
+        res.writeHead(200, {
+          "Content-Type": "application/json",
+          "Content-Length": jsonString.length,
+        });
+        res.end(jsonString);
+      }
+    } else {
+      throw Error("Unknown collection");
+    }
   } catch (e: any) {
     return res
       .status(400)
