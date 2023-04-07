@@ -1,4 +1,5 @@
 import { spline } from "@/utils/spline";
+import namer from "color-namer";
 
 const { SVG, registerWindow } = require("@svgdotjs/svg.js");
 const { createSVGWindow } = require("svgdom");
@@ -31,6 +32,9 @@ export default class BlobCharacter {
     this.width = width;
     this.height = height;
 
+    // attributes for json generation later
+    this.attributes = {};
+
     // position of our character within the viewBox (the center)
     this.x = this.width / 2;
     this.y = this.height / 2;
@@ -58,6 +62,7 @@ export default class BlobCharacter {
   drawBody() {
     // how many points do we want?
     const numPoints = randomSeeded(3, 12, false, this.seed);
+    this.attributes.points = numPoints;
     // step used to place each point at equal distances
     const angleStep = (Math.PI * 2) / numPoints;
 
@@ -97,6 +102,7 @@ export default class BlobCharacter {
     const maxWidth = this.size / 2;
     // if a random number between 0 and 1 is greater than 0.75, the character is a cyclops!
     const isCyclops = randomSeeded(0, 1, true, this.seed) > 0.75;
+    this.attributes.cyclops = isCyclops;
     // the size of each (or only) eye.
     const eyeSize = randomSeeded(maxWidth / 2, maxWidth, false, this.seed);
 
@@ -152,6 +158,10 @@ export default class BlobCharacter {
     this.darkColor = `hsl(${hue}, ${saturation}%, 2%)`;
     // almost white, slightly tinted with the base color
     this.lightColor = `hsl(${hue}, ${saturation}%, 98%)`;
+
+    this.attributes.color = namer(this.primaryColor, {
+      pick: ["basic"],
+    }).basic[0].name;
   }
 
   draw() {
