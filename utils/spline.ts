@@ -57,10 +57,14 @@ function spline(
     const x3 = i !== last ? points[i + 4] : x2;
     const y3 = i !== last ? points[i + 5] : y2;
 
+    // @ts-ignore
     const cp1x = x1 + ((x2 - x0) / 6) * tension;
+    // @ts-ignore
     const cp1y = y1 + ((y2 - y0) / 6) * tension;
 
+    // @ts-ignore
     const cp2x = x2 - ((x3 - x1) / 6) * tension;
+    // @ts-ignore
     const cp2y = y2 - ((y3 - y1) / 6) * tension;
 
     path += "C" + [cp1x, cp1y, cp2x, cp2y, x2, y2];
