@@ -10,16 +10,16 @@ const items = [
     icon: "fa fa-twitter",
   },
   {
-    name: "Github",
-    href: "https://github.com/tylerbuchea",
-    icon: "fa fa-github",
+    name: "YouTube",
+    href: "https://www.youtube.com/channel/UCjGfHpKjVrp7MZ45hiwgD_A",
+    icon: "fa fa-youtube",
   },
-  // {
-  //   name: "YouTube",
-  //   href: "https://www.youtube.com/channel/UCjGfHpKjVrp7MZ45hiwgD_A",
-  //   icon: "fa fa-youtube",
-  // },
 
+  // {
+  //   name: "Github",
+  //   href: "https://github.com/tylerbuchea",
+  //   icon: "fa fa-github",
+  // },
   // {
   //   name: "Angel List",
   //   href: "https://angel.co/tyler-buchea",
