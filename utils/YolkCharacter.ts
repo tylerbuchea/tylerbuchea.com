@@ -10,7 +10,7 @@ const CELL_SIZE = WIDTH / COLS;
 const RADIUS = (CELL_SIZE / 2) * 0.8;
 const BACKGROUND_COLOR = "#f9dcc4";
 
-function randomSeed(min, max, seed, float = true) {
+function randomSeed(min: any, max: any, seed: any, float = true) {
   max = max || 1;
   min = min || 0;
 
@@ -21,9 +21,9 @@ function randomSeed(min, max, seed, float = true) {
   return float ? result : Math.round(result);
 }
 
-const radians = (degrees) => (degrees * Math.PI) / 180;
+const radians = (degrees: any) => (degrees * Math.PI) / 180;
 
-const array = (length, func) => {
+const array = (length: any, func: any) => {
   const arr = [];
   for (let i = 0; i < length; i++) {
     arr.push(func());
@@ -32,9 +32,9 @@ const array = (length, func) => {
   return arr;
 };
 
-const sum = (arr) => arr.reduce((acc, cv) => acc + cv, 0);
+const sum = (arr: any) => arr.reduce((acc: any, cv: any) => acc + cv, 0);
 
-const getRadius = (alpha, amps, phases, wavesCount) => {
+const getRadius = (alpha: any, amps: any, phases: any, wavesCount: any) => {
   let results = [];
   for (let i = 0; i < wavesCount; i++) {
     results.push(amps[i] * Math.cos((i + 1) * alpha + phases[i]));
@@ -43,7 +43,13 @@ const getRadius = (alpha, amps, phases, wavesCount) => {
   return 1 + sum(results);
 };
 
-const drawShape = (ctx, points, color, strokeColor, lineWidth = 4) => {
+const drawShape = (
+  ctx: any,
+  points: any,
+  color: any,
+  strokeColor: any,
+  lineWidth = 4
+) => {
   // https://stackoverflow.com/questions/7054272/how-to-draw-smooth-curve-through-n-points-using-javascript-html5-canvas
   ctx.lineWidth = lineWidth;
   ctx.strokeStyle = strokeColor;
@@ -74,14 +80,14 @@ const drawShape = (ctx, points, color, strokeColor, lineWidth = 4) => {
 };
 
 const drawBlob = (
-  ctx,
-  x,
-  y,
-  wavesCount,
-  scaleFactor,
-  color,
-  strokeColor,
-  seed
+  ctx: any,
+  x: any,
+  y: any,
+  wavesCount: any,
+  scaleFactor: any,
+  color: any,
+  strokeColor: any,
+  seed: any
 ) => {
   // https://stackoverflow.com/questions/54828017/c-create-random-shaped-blob-objects
   const amps = array(wavesCount, () =>
@@ -104,7 +110,7 @@ const drawBlob = (
   drawShape(ctx, [...points, points[0]], color, strokeColor, 6);
 };
 
-const drawYolk = (ctx, x, y, r = 100, seed) => {
+const drawYolk = (ctx: any, x: any, y: any, r = 100, seed: any) => {
   const cx = x + randomSeed(0, r * 0.6, seed);
   const cy = y + randomSeed(0, r * 0.6, seed);
   const cr = r * randomSeed(1, 1.5, seed);
@@ -131,13 +137,13 @@ const drawYolk = (ctx, x, y, r = 100, seed) => {
   */
 };
 
-const drawEgg = (ctx, x, y, r = 300, seed) => {
+const drawEgg = (ctx: any, x: any, y: any, r = 300, seed: any) => {
   const wavesCount = randomSeed(5, 10, seed, false);
   drawBlob(ctx, x, y, wavesCount, r, "#fefefe", "#b7721d", seed);
   drawYolk(ctx, x, y, r / 3, seed);
 };
 
-const run = (ctx, seed) => {
+const run = (ctx: any, seed: any) => {
   const x = WIDTH / 2;
   const y = HEIGHT / 2;
 
@@ -161,7 +167,8 @@ const run = (ctx, seed) => {
 };
 
 export default class YolkCharacter {
-  constructor(seed) {
+  canvas: any;
+  constructor(seed: any) {
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
 
