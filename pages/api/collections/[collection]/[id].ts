@@ -1,11 +1,10 @@
 import Cors from "cors";
 import type { NextApiRequest, NextApiResponse } from "next";
-import SHA256 from "crypto-js/sha256";
+// import SHA256 from "crypto-js/sha256";
 
 import BlobCharacter from "@/utils/BlobCharacter";
 import YolkCharacter from "@/utils/YolkCharacter";
 import initMiddleware from "@/utils/initMiddleware";
-import { blob } from "stream/consumers";
 
 const corsOptions = { origin: "*" };
 const cors = initMiddleware(Cors(corsOptions));
@@ -41,9 +40,7 @@ export default async function handler(
           "Content-Length": svgString.length,
         });
         res.end(svgString);
-      }
-
-      if (type === "json") {
+      } else if (type === "json") {
         const blobCharacter = new BlobCharacter(200, 200, seed);
         blobCharacter.draw();
 
@@ -63,6 +60,8 @@ export default async function handler(
           "Content-Length": jsonString.length,
         });
         res.end(jsonString);
+      } else {
+        throw Error("invalid file type");
       }
     } else if (collection === "egg") {
       if (type === "png") {
@@ -76,8 +75,7 @@ export default async function handler(
         });
 
         res.end(buffer);
-      }
-      if (type === "json") {
+      } else if (type === "json") {
         const jsonString = JSON.stringify({
           name: `ChickenTribe Egg #${num}`,
           image: `https://tylerbuchea.com/api/collections/egg/${num}.png`,
@@ -88,13 +86,13 @@ export default async function handler(
           "Content-Length": jsonString.length,
         });
         res.end(jsonString);
+      } else {
+        throw Error("invalid file type");
       }
     } else {
       throw Error("Unknown collection");
     }
   } catch (e: any) {
-    return res
-      .status(400)
-      .json({ error: "bad request", message: e?.message || "Unkown error" });
+    return res.status(400).json({ error: e?.message || "Unkown error" });
   }
 }

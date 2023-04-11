@@ -1,4 +1,4 @@
-const { createCanvas, loadImage } = require("canvas");
+import { createCanvas, loadImage } from "canvas";
 const canvas = createCanvas(200, 200);
 const ctx = canvas.getContext("2d");
 
@@ -89,8 +89,8 @@ const drawBlob = (
   );
   const phases = array(wavesCount, () => randomSeed(0, 2 * Math.PI, seed));
 
-  console.log(amps);
-  console.log(phases);
+  // console.log(amps);
+  // console.log(phases);
   const points = [];
   const degrees = 360; // Math.PI * 2
   for (let i = 0; i < degrees; i++) {
