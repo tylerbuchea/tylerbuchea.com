@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import SHA256 from "crypto-js/sha256";
 
 import BlobCharacter from "@/utils/BlobCharacter";
+import YolkCharacter from "@/utils/YolkCharacter";
 import initMiddleware from "@/utils/initMiddleware";
 import { blob } from "stream/consumers";
 
@@ -12,6 +13,8 @@ const cors = initMiddleware(Cors(corsOptions));
 type FailureData = { error: string; message: string };
 
 type SuccessData = any;
+
+// https://dev.to/georgedoescode/tutorial-generative-blob-characters-using-svg-1igg
 
 export default async function handler(
   req: NextApiRequest,
@@ -53,6 +56,31 @@ export default async function handler(
               value,
             })
           ),
+        });
+
+        res.writeHead(200, {
+          "Content-Type": "application/json",
+          "Content-Length": jsonString.length,
+        });
+        res.end(jsonString);
+      }
+    } else if (collection === "egg") {
+      if (type === "png") {
+        const yolk = new YolkCharacter(seed);
+
+        const buffer = yolk.canvas.toBuffer("image/png", {});
+
+        res.writeHead(200, {
+          "Content-Type": "image/png",
+          "Content-Length": buffer.length,
+        });
+
+        res.end(buffer);
+      }
+      if (type === "json") {
+        const jsonString = JSON.stringify({
+          name: `ChickenTribe Egg #${num}`,
+          image: `https://tylerbuchea.com/api/collections/egg/${num}.png`,
         });
 
         res.writeHead(200, {
