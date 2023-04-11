@@ -8,6 +8,7 @@ specifiers:
   '@solana/spl-token': ^0.3.7
   '@solana/web3.js': ^1.75.0
   '@svgdotjs/svg.js': ^3.1.2
+  '@types/bn.js': ^5.1.1
   '@types/cors': ^2.8.13
   '@types/crypto-js': ^4.1.1
   '@types/node': 18.15.11
@@ -35,6 +36,7 @@ dependencies:
   '@solana/spl-token': 0.3.7_@solana+web3.js@1.75.0
   '@solana/web3.js': 1.75.0
   '@svgdotjs/svg.js': 3.1.2
+  '@types/bn.js': 5.1.1
   '@types/cors': 2.8.13
   '@types/crypto-js': 4.1.1
   '@types/node': 18.15.11

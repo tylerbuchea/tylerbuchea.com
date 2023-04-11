@@ -230,13 +230,13 @@ dotenv.config();
       anchorRemainingAccounts: proofPath,
     },
     {
-      root: [...new PublicKey(assetProof.root.trim()).toBytes()],
-      dataHash: [
-        ...new PublicKey(asset.compression.data_hash.trim()).toBytes(),
-      ],
-      creatorHash: [
-        ...new PublicKey(asset.compression.creator_hash.trim()).toBytes(),
-      ],
+      root: Array.from(new PublicKey(assetProof.root.trim()).toBytes()),
+      dataHash: Array.from(
+        new PublicKey(asset.compression.data_hash.trim()).toBytes()
+      ),
+      creatorHash: Array.from(
+        new PublicKey(asset.compression.creator_hash.trim()).toBytes()
+      ),
       nonce: asset.compression.leaf_id,
       index: asset.compression.leaf_id,
     },
